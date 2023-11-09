@@ -20,14 +20,9 @@ static char *colors[][3] = {
        [SchemeSel]  = { selbgcolor,  selfgcolor,  selfgcolor  },
 };
 
-/* tagging */
 static const char *tags[] = { "1", "2", "3", "4", "5", "6", "7", "7", "9", "10", "11", "12", "13", "14", "15", "16", "17", "17 |" };
 
 static const Rule rules[] = {
-    /* xprop(1):
-     *  WM_CLASS(STRING) = instance, class
-     *  WM_NAME(STRING) = title
-     */
     /* class                instance  title           tags mask  isfloating  isterminal  noswallow  monitor */
         { "firefox",			NULL,     NULL,           1 << 1,    0,          0,          -1,        -1 },
         { NULL,				NULL,     NULL,           1 << 2,    0,          0,          -1,        -1 },
@@ -36,14 +31,14 @@ static const Rule rules[] = {
 };
 
 /* layout(s) */
-static const float mfact     = 0.55; /* factor of master area size [0.05..0.95] */
-static const int nmaster     = 1;    /* number of clients in master area */
-static const int resizehints = 1;    /* 1 means respect size hints in tiled resizals */
+static const float mfact     = 0.55;
+static const int nmaster     = 1;
+static const int resizehints = 1;
 
 static const Layout layouts[] = {
 	/* symbol     arrange function */
-	{ "",      tile },    /* first entry is default */
-	{ "><>",      NULL },    /* no layout function means floating behavior */
+	{ "",      tile },
+	{ "><>",      NULL },
 	{ "[M]",      monocle },
 };
 
@@ -55,12 +50,9 @@ static const Layout layouts[] = {
 	{ MODKEY|ControlMask,           KEY,      toggleview,     {.ui = 1 << TAG} }, \
 	{ MODKEY|ShiftMask,             KEY,      tag,            {.ui = 1 << TAG} }, \
 	{ MODKEY|ControlMask|ShiftMask, KEY,      toggletag,      {.ui = 1 << TAG} },
-
-/* helper for spawning shell commands in the pre dwm-5.0 fashion */
 #define SHCMD(cmd) { .v = (const char*[]){ "/bin/sh", "-c", cmd, NULL } }
 
-/* commands */
-static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
+static char dmenumon[2] = "0";
 static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont};
 static const char *termcmd[]  = { "st", NULL };
 
@@ -114,8 +106,6 @@ static Key keys[] = {
 	{ ControlMask,			XK_8,	   view,	   {.ui = 18} },
 };
 
-/* button definitions */
-/* click can be ClkTagBar, ClkLtSymbol, ClkStatusText, ClkWinTitle, ClkClientWin, or ClkRootWin */
 static Button buttons[] = {
 	/* click                event mask      button          function        argument */
 	{ ClkLtSymbol,          0,              Button1,        setlayout,      {0} },
