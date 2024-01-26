@@ -21,6 +21,7 @@ static char *colors[][3] = {
 };
 
 static const char *tags[] = { "1", "2", "3", "4", "5", "6", "7", "7", "9", "10", "11", "12", "13", "14", "15", "16", "17", "17 |" };
+# i dont like no 8 lol
 
 static const Rule rules[] = {
     /* class                instance  title           tags mask  isfloating  isterminal  noswallow  monitor */
